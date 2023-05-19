@@ -5,6 +5,7 @@ public abstract class Persona {
 	//ATRIBUTOS
 	private String nombre;
 	private int numTelefono;
+	int quitar;
 
 	public Persona(String nombre, int numTelefono) {
 		this.nombre=nombre;

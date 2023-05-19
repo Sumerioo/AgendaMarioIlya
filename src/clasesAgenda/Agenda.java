@@ -1,7 +1,7 @@
 package clasesAgenda;
 import java.util.*;
 public class Agenda {
-
+	int quitar;
 	private ArrayList<Persona>agenda;
 	private ArrayList<Mensaje>mensajes;
 	

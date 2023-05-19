@@ -1,6 +1,7 @@
 package clasesAgenda;
 
 public class Administrador extends Persona{
+	int quitar;
 	//Constructor
 	public Administrador (String nombre, int numTelefono) {
 		super(nombre,numTelefono);

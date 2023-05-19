@@ -5,6 +5,7 @@ public abstract class Mensaje {
 	private int telfEmisor;
 	private int telfReceptor;
 	private String texto;
+	int quitar;
 	
 	//Constructor
 	public Mensaje(int telfEmisor, int telfReceptor, String texto) {

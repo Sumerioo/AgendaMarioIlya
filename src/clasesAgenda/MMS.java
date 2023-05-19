@@ -1,6 +1,7 @@
 package clasesAgenda;
 
 public class MMS extends Mensaje{
+	int quitar;
 	
 	//Atributos
 	

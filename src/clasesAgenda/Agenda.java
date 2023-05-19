@@ -1,5 +1,59 @@
 package clasesAgenda;
-
+import java.util.*;
 public class Agenda {
 
+	private ArrayList<Persona>agenda;
+	private ArrayList<Mensaje>mensajes;
+	
+	public Agenda() {
+		agenda=new ArrayList<Persona>();
+		mensajes=new ArrayList<Mensaje>();
+	}
+	//Metodos Agenda
+	public void mostrarAgenda() {
+		for(Persona p:agenda) {
+			System.out.println(p);
+		}
+	}
+	public void guardarContacto(Persona per) {
+		agenda.add(per);
+	}
+	public void guardarMensaje(Mensaje men) {
+		mensajes.add(men);
+	}
+	
+	public void borrarContacto(Persona per) {
+		
+	}
+	public void borrarMensaje(Mensaje men) {
+		
+	}
+	
+	//METODO LOG IN
+	
+	public void logIn(int numTelf) throws ErrorLogIn {
+		int posicionAgenda=0;
+		while(posicionAgenda<agenda.size()&&agenda.get(posicionAgenda).getN_Telefono()!=numTelf) {
+			posicionAgenda++;
+		}
+		if(posicionAgenda==agenda.size()) {
+			throw new ErrorLogIn();
+			//System.err.println("Error, usuario no encontrado");
+		}else {
+			System.out.println("Usuario encontrado.\nNombre: "+agenda.get(posicionAgenda).getNombre()+"\nNumero de Telefono: "+agenda.get(posicionAgenda).getN_Telefono());
+			System.out.println("Comprobando si es Usuario o Administrador..");
+			instancePersona(posicionAgenda);
+		}
+		
+	}
+	
+	private void instancePersona(int posicionAgenda) {
+		if(agenda.get(posicionAgenda) instanceof Administrador) {
+			System.out.println("Eres un administrador, puedes acceder a todas las funciones");
+			
+		}else if(agenda.get(posicionAgenda) instanceof Usuario) {
+			System.out.println("Eres un usuario, puedes acceder a funciones simples");
+		}
+	}
+	
 }

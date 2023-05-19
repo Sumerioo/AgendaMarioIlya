@@ -1,7 +1,8 @@
 package clasesAgenda;
-
+import java.util.*;
+import java.io.*;
 public class MMS extends Mensaje{
-	int quitar;
+	
 	
 	//Atributos
 	

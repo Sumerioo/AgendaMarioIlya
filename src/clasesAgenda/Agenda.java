@@ -1,7 +1,8 @@
 package clasesAgenda;
 import java.util.*;
+import java.io.*;
 public class Agenda {
-	int quitar;
+
 	private ArrayList<Persona>agenda;
 	private ArrayList<Mensaje>mensajes;
 	
@@ -12,7 +13,7 @@ public class Agenda {
 	//Metodos Agenda
 	public void mostrarAgenda() {
 		for(Persona p:agenda) {
-			System.out.println(p);
+			System.out.println(p.toString());
 		}
 	}
 	public void guardarContacto(Persona per) {
@@ -28,6 +29,27 @@ public class Agenda {
 	public void borrarMensaje(Mensaje men) {
 		
 	}
+	public void verMensajesNumConcreto(int numTelf) {
+		for(Mensaje men: mensajes) {
+			if(men.getTelfReceptor()==numTelf) {
+				System.out.println(men.toString());
+			}
+		}
+	}
+
+	//METODO CREACION PERSONA
+	public void crearPersona(String tipo, String nombre, int numTelf) {
+		
+		if(tipo.equalsIgnoreCase("Admin")||tipo.equalsIgnoreCase("Administrador")) {
+			Administrador nuevoAdmin =new Administrador(nombre,numTelf);
+			agenda.add(nuevoAdmin);
+		}else if(tipo.equalsIgnoreCase("Usuario")) {
+			Usuario nuevoUsu = new Usuario(nombre,numTelf);
+			agenda.add(nuevoUsu);
+		}
+	}
+	
+	
 	
 	//METODO LOG IN
 	

@@ -5,7 +5,7 @@ public abstract class Persona {
 	//ATRIBUTOS
 	private String nombre;
 	private int numTelefono;
-	int quitar;
+
 
 	public Persona(String nombre, int numTelefono) {
 		this.nombre=nombre;
@@ -15,8 +15,8 @@ public abstract class Persona {
 	
 	//METODOS
 	//protected abstract void creacionPersona();
-	public abstract void enviarMensaje();
-	public abstract void recibirMensaje();
+	public abstract Mensaje enviarMensaje(int num);
+	
 
 	//GETTERSySETTERS
 	public String getNombre() {
@@ -33,6 +33,12 @@ public abstract class Persona {
 
 	public void setN_Telefono(int n_Telefono) {
 		this.numTelefono = n_Telefono;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Persona [nombre=" + nombre + ", numTelefono=" + numTelefono + "]";
 	}
 	
 	

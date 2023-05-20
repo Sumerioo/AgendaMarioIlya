@@ -30,5 +30,8 @@ public class Usuario extends Persona{
 		return null;
 	}
 	
-	
+	//Metodos normales
+	public void menuUsuario() {
+		System.out.println("Siendo usuario puedes acceder a las siguientes funciones, que deseas?\n1.Enviar Mensaje.\n2.Ver mensajes recibidos.\n3.Borrar un mensaje recibido.\n4.Salir del programa.");
+	}
 }

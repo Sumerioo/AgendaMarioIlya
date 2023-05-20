@@ -33,10 +33,7 @@ public class Administrador extends Persona{
 
 	
 	//Metodos normales
-	public void verMensajeEnviado(Persona per) {
-		
-	}
-	public void verMensajeRecibido(Persona per) {
-		
+	public void menuAdmin() {
+		System.out.println("Siendo administrador puedes acceder a las siguientes funciones, que deseas?\n1.Enviar Mensaje.\n2.Ver mensajes recibidos.\n3.Ver mensaje de cualquier usuario (Recibido o Enviado).\n4.Borrar un contacto de la agenda.\n5.Borrar un mensaje, propio o de algun usuario, recibido o enviado.\n6.Salir del programa.");
 	}
 }

@@ -26,7 +26,7 @@ public class Agenda {
 		}
 	}
 	
-	// METODO LOG IN
+	// METODO LOG IN  // TODO pensar como devolver el tipo de persona, o como hacer que acceda a unas funciones u otras
 
 	public void logIn(int numTelf) throws ErrorLogIn {
 		int posicionAgenda = 0;
@@ -41,15 +41,18 @@ public class Agenda {
 					+ "\nNumero de Telefono: " + agenda.get(posicionAgenda).getNumTelefono());
 			System.out.println("Comprobando si es Usuario o Administrador..");
 			instancePersona(posicionAgenda);
+			//return agenda.get(posicionAgenda);
 		}
 
 	}
 
 	private void instancePersona(int posicionAgenda) {
 		if (agenda.get(posicionAgenda) instanceof Administrador) {
+			System.out.println("Bienvenido "+agenda.get(posicionAgenda).getNombre());
 			System.out.println("Eres un administrador, puedes acceder a todas las funciones");
 
 		} else if (agenda.get(posicionAgenda) instanceof Usuario) {
+			System.out.println("Bienvenido "+agenda.get(posicionAgenda).getNombre());
 			System.out.println("Eres un usuario, puedes acceder a funciones simples");
 		}
 	}

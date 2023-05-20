@@ -1,4 +1,4 @@
-package clasesAgenda;
+package baulErrores;
 
 public class ErrorLogIn extends Exception{
 	

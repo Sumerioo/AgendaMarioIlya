@@ -17,13 +17,13 @@ public class Administrador extends Persona{
 		tipomsj = sc.nextLine();
 		if (tipomsj.equalsIgnoreCase("SMS")) {
 			System.out.println("Introduce un contenido.");
-			SMS sms = new SMS(this.getN_Telefono(), numTelf, sc.nextLine());
+			SMS sms = new SMS(this.getNumTelefono(), numTelf, sc.nextLine());
 			System.out.println("Mensaje enviado y guardado!");
 			return sms;
 
 		} else if (tipomsj.equalsIgnoreCase("MMS")) {
 			System.out.println("Introduce el telefono del receptor, un contenido y la foto.");
-			MMS mms = new MMS(this.getN_Telefono(), numTelf, sc.nextLine(), true);
+			MMS mms = new MMS(this.getNumTelefono(), numTelf, sc.nextLine(), true);
 			System.out.println("Mensaje enviado y guardado!");
 			return mms;
 

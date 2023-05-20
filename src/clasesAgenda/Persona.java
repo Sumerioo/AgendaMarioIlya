@@ -27,11 +27,11 @@ public abstract class Persona {
 		this.nombre = nombre;
 	}
 
-	public int getN_Telefono() {
+	public int getNumTelefono() {
 		return numTelefono;
 	}
 
-	public void setN_Telefono(int n_Telefono) {
+	public void setNumTelefono(int n_Telefono) {
 		this.numTelefono = n_Telefono;
 	}
 

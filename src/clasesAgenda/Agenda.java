@@ -60,13 +60,15 @@ public class Agenda {
 	// METODO CREACION PERSONA
 	
 	public void crearPersona(String tipo, String nombre, int numTelf) {
-
+		
 		if (tipo.equalsIgnoreCase("Admin") || tipo.equalsIgnoreCase("Administrador")) {
 			Administrador nuevoAdmin = new Administrador(nombre, numTelf);
 			agenda.add(nuevoAdmin);
+			AccesoFicheros.escribirFicheroContactos(nuevoAdmin.toString());
 		} else if (tipo.equalsIgnoreCase("Usuario")) {
 			Usuario nuevoUsu = new Usuario(nombre, numTelf);
 			agenda.add(nuevoUsu);
+			AccesoFicheros.escribirFicheroContactos(nuevoUsu.toString());
 		}
 	}
 		

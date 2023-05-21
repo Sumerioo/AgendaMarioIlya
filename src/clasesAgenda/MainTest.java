@@ -10,35 +10,45 @@ public class MainTest {
 		Agenda agenda1=new Agenda();
 		
 		
+		//BORRAR ESTO;SOLOPRUEBA
+		AccesoFicheros.borradoFicheroContactos();
+		AccesoFicheros.leerFicheroContactos();
+		
 		//CREACION USUARIOS 
 		
-//		System.out.println("Quieres crear algun usuario?");
-//		String decision1=sc.nextLine();
-//		
-//		if (decision1.equalsIgnoreCase("Si")) {
-//
-//			System.out.println("Benvenute! ");
-//			String nombre;
-//			int numTelf;
-//			int contNewUsers = 0;
-//			System.out.println("Introduce el tipo de persona a crear (Administrador|Usuario)");
-//
-//			String tipo = sc.nextLine();
-//
-//			while (tipo.equalsIgnoreCase("Admin") || tipo.equalsIgnoreCase("Administrador")
-//					|| tipo.equalsIgnoreCase("Usuario")) {
-//				System.out.println("Introduce un nombre:");
-//				nombre = sc.next();
-//				System.out.println("Introduce un telefono:");
-//				numTelf = sc.nextInt();
-//				agenda1.crearPersona(tipo, nombre, numTelf);
-//				System.out.println("Introduce el tipo de persona a crear (Administrador|Usuario|S para salir) ");
-//				tipo = sc.next();
-//				contNewUsers++;
-//			}
-//			
-//			System.out.println("Saliste, has creado " + contNewUsers + " usuarios/admins nuevos !");
-//		}
+		System.out.println("Quieres crear algun usuario?");
+		String decision1=sc.nextLine();
+		
+		if (decision1.equalsIgnoreCase("Si")) {
+
+			System.out.println("Benvenute! ");
+			String nombre;
+			int numTelf;
+			int contNewUsers = 0;
+			System.out.println("Introduce el tipo de persona a crear (Administrador|Usuario)");
+
+			String tipo = sc.nextLine();
+
+			while (tipo.equalsIgnoreCase("Admin") || tipo.equalsIgnoreCase("Administrador")
+					|| tipo.equalsIgnoreCase("Usuario")) {
+				System.out.println("Introduce un nombre:");
+				nombre = sc.next();
+				System.out.println("Introduce un telefono:");
+				numTelf = sc.nextInt();
+				agenda1.crearPersona(tipo, nombre, numTelf);
+				System.out.println("Introduce el tipo de persona a crear (Administrador|Usuario|S para salir) ");
+				tipo = sc.next();
+				contNewUsers++;
+			}
+			
+			System.out.println("Saliste, has creado " + contNewUsers + " usuarios/admins nuevos !");
+		}
+		
+		//PRUEBAS FICHEROS
+		
+		AccesoFicheros.leerFicheroContactos();
+		
+		AccesoFicheros.leerFicheroMensajes();
 		
 		//METODO VER AGENDA
 		
@@ -62,7 +72,7 @@ public class MainTest {
 		
 		Usuario user1=new Usuario("Boinas",101);
 		//Usuario user2=new Usuario("SorakaBoinas",102);
-//		System.out.println("Siendo usuario puedes acceder a las siguientes funciones, que deseas?\n1.Enviar Mensaje.\n2.Ver mensajes recibidos.\n3.Borrar un mensaje recibido.\n4.Salir del programa.");
+//		Usuario.menuUsuario();
 //		int eleccionUsu=sc.nextInt();
 //		while(eleccionUsu<4) {
 //		switch(eleccionUsu) {
@@ -100,7 +110,7 @@ public class MainTest {
 //			
 //			break;
 //		}
-//		System.out.println("Siendo usuario puedes acceder a las siguientes funciones, que deseas?\n1.Enviar Mensaje.\n2.Ver mensajes recibidos.\n3.Borrar un mensaje recibido.\n4.Salir del programa.");
+//		Usuario.menuUsuario();
 //		eleccionUsu=sc.nextInt();
 //		System.out.print("\n");
 //		}
@@ -110,68 +120,67 @@ public class MainTest {
 		
 		//MENU DE FUNCIONES PARA ADMINISTRADOR 
 				//implementar menu desde metodo??
-		System.out.println("Siendo administrador puedes acceder a las siguientes funciones, que deseas?\n1.Enviar Mensaje.\n2.Ver mensajes recibidos.\n3.Ver mensaje de cualquier usuario (Recibido o Enviado).\n4.Borrar un contacto de la agenda.\n5.Borrar un mensaje, propio o de algun usuario, recibido o enviado.\n6.Salir del programa.");
-		int eleccionAdmin = sc.nextInt();
-		while (eleccionAdmin < 6) {
-			switch (eleccionAdmin) {
-
-			case 1:
-
-				System.out.println("Introduce el numero de telefono del destinatario");
-				;
-				agenda1.guardarMensaje(user1.enviarMensaje(sc.nextInt()));
-				System.out.print("\n");
-				break;
-
-			case 2:
-
-				System.out.println("Mostrando mensajes recibidos al numero" + user1.getNumTelefono());
-				System.out.print("\n");
-				agenda1.verMensajesNumConcreto(user1.getNumTelefono());
-				System.out.print("\n");
-				break;
-
-			case 3:
-				System.out.println("Introduce un numero de telefono para ver todos sus mensajes");
-				int verMensajesConcreto=sc.nextInt();
-				agenda1.verMensajesNumConcreto(verMensajesConcreto);
-				break;
-			case 4:
-				System.out.println("Borrando contacto de la agenda, introduce su numero de telefono");
-				int borrarContactoDesdeAdmin=sc.nextInt();
-				try {
-				agenda1.borrarContacto(borrarContactoDesdeAdmin);
-				}catch(ErrorAlBorrar exc) {
-					System.err.println("Ha ocurrido un error al borrar el contacto");
-				}
-				break;
-			case 5:
-
-				System.out.println("Elige el mensaje que quieres borrar, indicando el numero de telefono del emisor:");
-				System.out.print("\n");
-				int borrarMensajeDesdeAdmin=sc.nextInt();
-				agenda1.verMensajesNumConcreto(borrarMensajeDesdeAdmin);
-				System.out.print("\n");
-				int numParaBorrar = sc.nextInt();
-				try {
-					agenda1.borrarMensaje(numParaBorrar);
-				} catch (ErrorAlBorrar exc) {
-					System.err.println("Se ha producido un error al borrar el mensaje");
-				}
-				break;
-			default:
-				System.err.println("Funcion no reconocida.");
-
-				break;
-			}
-			System.out.println(
-					"Siendo administrador puedes acceder a las siguientes funciones, que deseas?\n1.Enviar Mensaje.\n2.Ver mensajes recibidos.\n3.Ver mensaje de cualquier usuario (Recibido o Enviado).\n4.Borrar un contacto de la agenda.\n5.Borrar un mensaje, propio o de algun usuario, recibido o enviado.\n6.Salir del programa.");
-			eleccionAdmin = sc.nextInt();
-			System.out.print("\n");
-		}
-		if (eleccionAdmin == 6) {
-			System.out.println("Saliendo del menu administrador");
-		}
+		Administrador.menuAdmin();
+//		int eleccionAdmin = sc.nextInt();
+//		while (eleccionAdmin < 6) {
+//			switch (eleccionAdmin) {
+//
+//			case 1:
+//
+//				System.out.println("Introduce el numero de telefono del destinatario");
+//				;
+//				agenda1.guardarMensaje(user1.enviarMensaje(sc.nextInt()));
+//				System.out.print("\n");
+//				break;
+//
+//			case 2:
+//
+//				System.out.println("Mostrando mensajes recibidos al numero" + user1.getNumTelefono());
+//				System.out.print("\n");
+//				agenda1.verMensajesNumConcreto(user1.getNumTelefono());
+//				System.out.print("\n");
+//				break;
+//
+//			case 3:
+//				System.out.println("Introduce un numero de telefono para ver todos sus mensajes");
+//				int verMensajesConcreto=sc.nextInt();
+//				agenda1.verMensajesNumConcreto(verMensajesConcreto);
+//				break;
+//			case 4:
+//				System.out.println("Borrando contacto de la agenda, introduce su numero de telefono");
+//				int borrarContactoDesdeAdmin=sc.nextInt();
+//				try {
+//				agenda1.borrarContacto(borrarContactoDesdeAdmin);
+//				}catch(ErrorAlBorrar exc) {
+//					System.err.println("Ha ocurrido un error al borrar el contacto");
+//				}
+//				break;
+//			case 5:
+//
+//				System.out.println("Elige el mensaje que quieres borrar, indicando el numero de telefono del emisor:");
+//				System.out.print("\n");
+//				int borrarMensajeDesdeAdmin=sc.nextInt();
+//				agenda1.verMensajesNumConcreto(borrarMensajeDesdeAdmin);
+//				System.out.print("\n");
+//				int numParaBorrar = sc.nextInt();
+//				try {
+//					agenda1.borrarMensaje(numParaBorrar);
+//				} catch (ErrorAlBorrar exc) {
+//					System.err.println("Se ha producido un error al borrar el mensaje");
+//				}
+//				break;
+//			default:
+//				System.err.println("Funcion no reconocida.");
+//
+//				break;
+//			}
+//		Administrador.menuAdmin();
+//			eleccionAdmin = sc.nextInt();
+//			System.out.print("\n");
+//		}
+//		if (eleccionAdmin == 6) {
+//			System.out.println("Saliendo del menu administrador");
+//		}
 		
 		//PRUEBA BORRADO DE CONTACTO/MENSAJE
 		
@@ -188,6 +197,7 @@ public class MainTest {
 //		}catch(ErrorAlBorrar exc) {
 //			System.err.println("Ha ocurrido un error al borrar un mensaje !");
 //		}
+		
 		
 		
 		sc.close();

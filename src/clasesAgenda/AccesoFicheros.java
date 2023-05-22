@@ -23,8 +23,27 @@ public class AccesoFicheros {
 //		}
 //	}
 	
-	//METODO LECTURA DE FICHEROS
+	//SINCRONIZACION FICHERO CON ARRAYLISTS
 	
+	public void updateARLCnt(ArrayList<Persona> agenda) {
+		System.out.println("Actualizando repositorios en ArrayLists...");
+		try {
+			reader=new BufferedReader(new FileReader(RUTACONTACTOS));
+			//writer=new BufferedWriter(new FileWriter(RUTACONTACTOS));
+			String salida=reader.readLine();
+			while(salida!=null) {
+				String [] extractos=salida.split(";");
+				//int numero=parseInt(extractos[1]);
+				//agenda.add(new Persona(extractos[0],extractos[1]));
+			}
+		}catch(IOException exc) {
+			System.err.println("Encountered problem while updating ArrayLists.");
+		}
+	}
+	
+	
+	//METODO LECTURA DE FICHEROS
+
 	public static void leerFicheroContactos() {
 		System.out.println("Mostrando base de datos de contactos...");
 		try {
@@ -54,10 +73,6 @@ public class AccesoFicheros {
 			System.err.println("Error al leer el fichero de mensajes");		
 		}
 	}
-	
-	//SINCRONIZACION FICHERO CON ARRAYLISTS
-	
-	
 	
 	//METODO ESCRITURA EN FICHEROS
 	

@@ -85,11 +85,11 @@ public class Agenda {
 		if (tipo.equalsIgnoreCase("Admin") || tipo.equalsIgnoreCase("Administrador")) {
 			Administrador nuevoAdmin = new Administrador(nombre, numTelf);
 			agenda.add(nuevoAdmin);
-			AccesoFicheros.escribirFicheroContactos(nuevoAdmin.toString());
+			AccesoFicheros.escribirFicheroContactos(nuevoAdmin.getNombre()+";"+nuevoAdmin.getNumTelefono());
 		} else if (tipo.equalsIgnoreCase("Usuario")) {
 			Usuario nuevoUsu = new Usuario(nombre, numTelf);
 			agenda.add(nuevoUsu);
-			AccesoFicheros.escribirFicheroContactos(nuevoUsu.toString());
+			AccesoFicheros.escribirFicheroContactos(nuevoUsu.getNombre()+";"+nuevoUsu.getNumTelefono());
 		}
 	}
 		

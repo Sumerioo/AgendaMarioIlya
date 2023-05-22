@@ -1,5 +1,5 @@
 package clasesAgenda;
-
+import baulErrores.*;
 public abstract class Persona {
 	
 	//ATRIBUTOS
@@ -15,7 +15,7 @@ public abstract class Persona {
 	
 	//METODOS
 	//protected abstract void creacionPersona();
-	public abstract Mensaje enviarMensaje(int num);
+	public abstract Mensaje enviarMensaje(int num) throws ErrorEnMensaje;
 	
 
 	//GETTERSySETTERS

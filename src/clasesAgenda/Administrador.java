@@ -1,6 +1,7 @@
 package clasesAgenda;
 import java.util.*;
 import java.io.*;
+import baulErrores.*;
 public class Administrador extends Persona{
 	
 	//Constructor
@@ -9,8 +10,7 @@ public class Administrador extends Persona{
 	}
 
 	// Metodos abstractos
-	public Mensaje enviarMensaje(int numTelf) {
-		// TODO terminar para que no meta nulos en la agenda
+	public Mensaje enviarMensaje(int numTelf) throws  ErrorEnMensaje {
 		Scanner sc = new Scanner(System.in);
 		String tipomsj;
 		System.out.println("Que tipo de mensaje deseas enviar? (SMS|MMS)");
@@ -27,8 +27,10 @@ public class Administrador extends Persona{
 			System.out.println("Mensaje enviado y guardado!");
 			return mms;
 
-		}
-		return null;
+		}else {
+			throw new ErrorEnMensaje()
+;		}
+		
 	}
 
 	

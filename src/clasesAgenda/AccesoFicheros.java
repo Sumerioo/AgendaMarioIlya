@@ -55,6 +55,10 @@ public class AccesoFicheros {
 		}
 	}
 	
+	//SINCRONIZACION FICHERO CON ARRAYLISTS
+	
+	
+	
 	//METODO ESCRITURA EN FICHEROS
 	
 	public static void escribirFicheroContactos(String contactoNuevo) {

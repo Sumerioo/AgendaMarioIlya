@@ -6,6 +6,7 @@ public class Agenda {
 
 	private ArrayList<Persona>agenda;
 	private ArrayList<Mensaje>mensajes;
+	private int adminOusu;
 	
 	public Agenda() {
 		agenda=new ArrayList<Persona>();
@@ -26,35 +27,55 @@ public class Agenda {
 		}
 	}
 	
-	// METODO LOG IN  // TODO pensar como devolver el tipo de persona, o como hacer que acceda a unas funciones u otras
+	// METODO LOG IN  
 
-	public void logIn(int numTelf) throws ErrorLogIn {
+	public int logIn(int numTelf) throws ErrorLogIn {
 		int posicionAgenda = 0;
 		while (posicionAgenda < agenda.size() && agenda.get(posicionAgenda).getNumTelefono() != numTelf) {
 			posicionAgenda++;
 		}
 		if (posicionAgenda == agenda.size()) {
 			throw new ErrorLogIn();
-			// System.err.println("Error, usuario no encontrado");
 		} else {
-			System.out.println("Usuario encontrado.\nNombre: " + agenda.get(posicionAgenda).getNombre()
+			System.out.println("Numero encontrado.\nNombre: " + agenda.get(posicionAgenda).getNombre()
 					+ "\nNumero de Telefono: " + agenda.get(posicionAgenda).getNumTelefono());
 			System.out.println("Comprobando si es Usuario o Administrador..");
-			instancePersona(posicionAgenda);
-			//return agenda.get(posicionAgenda);
+			try {
+			return adminOusu=instancePersona(posicionAgenda);
+			}catch(ErrorInstanceOf exc) {
+				System.out.println("Error al devolver el tipo de contacto.");
+			}
+			
 		}
-
+		return 2;
 	}
 
-	private void instancePersona(int posicionAgenda) {
+	private int instancePersona(int posicionAgenda) throws ErrorInstanceOf{
 		if (agenda.get(posicionAgenda) instanceof Administrador) {
 			System.out.println("Bienvenido "+agenda.get(posicionAgenda).getNombre());
 			System.out.println("Eres un administrador, puedes acceder a todas las funciones");
+			return 1;
 
 		} else if (agenda.get(posicionAgenda) instanceof Usuario) {
 			System.out.println("Bienvenido "+agenda.get(posicionAgenda).getNombre());
 			System.out.println("Eres un usuario, puedes acceder a funciones simples");
+			return 0;
+		}else {
+			throw new ErrorInstanceOf();
 		}
+	}
+	
+	public Persona sacarPersona(int numTelf) {
+		int posicionAgenda = 0;
+		while (posicionAgenda < agenda.size() && agenda.get(posicionAgenda).getNumTelefono() != numTelf) {
+			posicionAgenda++;
+		}
+		if (posicionAgenda == agenda.size()) {
+			 System.err.println("Error en metodo sacarPersona");
+		} else {	
+			return agenda.get(posicionAgenda);
+		}
+		return null;
 	}
 
 	// METODO CREACION PERSONA
@@ -144,12 +165,5 @@ public class Agenda {
 				System.out.println(men.toString());
 			}
 		}
-	}
-
-	
-	
-	
-	
-	
-	
+	}	
 }

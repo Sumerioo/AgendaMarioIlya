@@ -64,12 +64,12 @@ public class AccesoFicheros {
 			writer=new BufferedWriter(new FileWriter(RUTACONTACTOS)); //Mirar si necesita append
 			int contador=0;
 			while(contador!=posicion) {
-				writer.newLine();
+				writer.newLine(); ///NO FUNCIONA, HACER CON READER
 				contador++;
 			}
 			if(contador==posicion) {
 				writer.write("");   //Mirar si borra la linea o mete un espacio en blanco que cuente como otra linea
-			}else {
+			}else {						// HACER CON IDEA DE CRISTINA DE QUE SIMPLEMENTE NO DEVUELVA LA LINEA 
 				System.err.println("Error al encontrar puntero");
 			}
 			writer.close();

@@ -11,39 +11,43 @@ public class MainTest {
 		
 		//SINCRONIZACION FICHEROS / ARRAYLISTS
 		
+		agenda1.updateARLCnt();
+		agenda1.updateARLMsg();
+		
+		
 		//BORRAR ESTO;SOLOPRUEBA
-		AccesoFicheros.borradoFicheroContactos();
-		AccesoFicheros.leerFicheroContactos();
+//		AccesoFicheros.borradoFicheroContactos();
+//		AccesoFicheros.leerFicheroContactos();
 		
 		//CREACION USUARIOS 
 		
-		System.out.println("Quieres crear algun usuario?");
-		String decision1=sc.nextLine();
-		
-		if (decision1.equalsIgnoreCase("Si")) {
-
-			System.out.println("Benvenute! ");
-			String nombre;
-			int numTelf;
-			int contNewUsers = 0;
-			System.out.println("Introduce el tipo de persona a crear (Administrador|Usuario)");
-
-			String tipo = sc.nextLine();
-
-			while (tipo.equalsIgnoreCase("Admin") || tipo.equalsIgnoreCase("Administrador")
-					|| tipo.equalsIgnoreCase("Usuario")) {
-				System.out.println("Introduce un nombre:");
-				nombre = sc.next();
-				System.out.println("Introduce un telefono:");
-				numTelf = sc.nextInt();
-				agenda1.crearPersona(tipo, nombre, numTelf);
-				System.out.println("Introduce el tipo de persona a crear (Administrador|Usuario|S para salir) ");
-				tipo = sc.next();
-				contNewUsers++;
-			}
-			
-			System.out.println("Saliste, has creado " + contNewUsers + " usuarios/admins nuevos !");
-		}
+//		System.out.println("Quieres crear algun usuario?");
+//		String decision1=sc.nextLine();
+//		
+//		if (decision1.equalsIgnoreCase("Si")) {
+//
+//			System.out.println("Benvenute! ");
+//			String nombre;
+//			int numTelf;
+//			int contNewUsers = 0;
+//			System.out.println("Introduce el tipo de persona a crear (Administrador|Usuario)");
+//
+//			String tipo = sc.nextLine();
+//
+//			while (tipo.equalsIgnoreCase("Admin") || tipo.equalsIgnoreCase("Administrador")
+//					|| tipo.equalsIgnoreCase("Usuario")) {
+//				System.out.println("Introduce un nombre:");
+//				nombre = sc.next();
+//				System.out.println("Introduce un telefono:");
+//				numTelf = sc.nextInt();
+//				agenda1.crearPersona(tipo, nombre, numTelf);
+//				System.out.println("Introduce el tipo de persona a crear (Administrador|Usuario|S para salir) ");
+//				tipo = sc.next();
+//				contNewUsers++;
+//			}
+//			
+//			System.out.println("Saliste, has creado " + contNewUsers + " usuarios/admins nuevos !");
+//		}
 		
 		//PRUEBAS FICHEROS
 		
@@ -53,7 +57,7 @@ public class MainTest {
 		
 		//METODO VER AGENDA
 		
-//		agenda1.mostrarAgenda();
+		agenda1.mostrarAgenda();
 		
 		
 		//LOG IN USERS/ADMINS

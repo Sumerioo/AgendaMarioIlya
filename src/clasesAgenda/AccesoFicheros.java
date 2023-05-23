@@ -25,21 +25,63 @@ public class AccesoFicheros {
 	
 	//SINCRONIZACION FICHERO CON ARRAYLISTS
 	
-	public void updateARLCnt(ArrayList<Persona> agenda) {
-		System.out.println("Actualizando repositorios en ArrayLists...");
+	public static void updateARLCnt(ArrayList<Persona> agenda) {
+		System.out.println("Sincronizando repositorios con ArrayList Contatos...");
 		try {
 			reader=new BufferedReader(new FileReader(RUTACONTACTOS));
 			//writer=new BufferedWriter(new FileWriter(RUTACONTACTOS));
 			String salida=reader.readLine();
 			while(salida!=null) {
 				String [] extractos=salida.split(";");
-				//int numero=parseInt(extractos[1]);
-				//agenda.add(new Persona(extractos[0],extractos[1]));
+				int numero=Integer.parseInt(extractos[1]);
+				agenda.add(new Usuario(extractos[0],numero)); //FALTA METER SI ES ADMIN O USU DE ALGUNA MANERA
+				salida=reader.readLine();
 			}
 		}catch(IOException exc) {
-			System.err.println("Encountered problem while updating ArrayLists.");
+			System.err.println("Problem encountered while updating ArrayLists.");
 		}
 	}
+	
+	public static void updateARLMsg(ArrayList<Mensaje> mensajes) {
+		System.out.println("Sincronizando repositorios con ArrayList Mensajes...");
+		try {
+			reader=new BufferedReader(new FileReader(RUTAMENSAJES));
+			String salida=reader.readLine();
+			while(salida!=null) {
+				String[]extractos=salida.split(";");
+				int numEmi=Integer.parseInt(extractos[0]);
+				int numRece=Integer.parseInt(extractos[1]);
+				mensajes.add(new SMS(numEmi,numRece,extractos[2])); //FALTA LO MISMO QUE ANTRES, DIFERENCIAR SMS Y MMS
+			}
+		}catch(IOException exc) {
+			System.err.println("Problem encountered while updating ArrayLists.");
+		}
+	}
+	
+	public static void deleteARLCnt(ArrayList<Persona> agenda, int posicion) {
+		System.out.println("Borrando campo en repositorio de contatos...");
+		try {
+			writer=new BufferedWriter(new FileWriter(RUTACONTACTOS)); //Mirar si necesita append
+			int contador=0;
+			while(contador!=posicion) {
+				writer.newLine();
+				contador++;
+			}
+			if(contador==posicion) {
+				writer.write("");   //Mirar si borra la linea o mete un espacio en blanco que cuente como otra linea
+			}else {
+				System.err.println("Error al encontrar puntero");
+			}
+			writer.close();
+		}catch(IOException exc) {
+			System.err.println("Problem encountered while deleting fields at repositories.");
+		}
+	}
+	
+	public static void deleteARLMsg(ArrayList<Mensaje> mensajes, int posicion) {
+		
+	}
+	
 	
 	
 	//METODO LECTURA DE FICHEROS

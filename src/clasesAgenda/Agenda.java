@@ -101,6 +101,7 @@ public class Agenda {
 	
 	public void guardarMensaje(Mensaje men) {
 		mensajes.add(men);
+		AccesoFicheros.escribirFicheroMensajes(men.getTelfEmisor()+";"+men.getTelfReceptor()+";"+men.getTexto());
 	}
 	
 	//METODOS BORRAR CONTACTO/MENSAJE (SOBRECARGANDO METODOS CON OBJETO Y TIPO DE DATO)
@@ -166,4 +167,15 @@ public class Agenda {
 			}
 		}
 	}	
+	
+	//METODOS SINCRONIZADO ARL/FICH
+	
+	public void updateARLCnt() {
+		AccesoFicheros.updateARLCnt(agenda);
+	}
+	
+	public void updateARLMsg() {
+		AccesoFicheros.updateARLMsg(mensajes);
+	}
+	
 }

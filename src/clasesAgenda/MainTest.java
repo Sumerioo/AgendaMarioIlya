@@ -8,6 +8,7 @@ public class MainTest {
 		Scanner sc=new Scanner(System.in);
 		Agenda agenda1=new Agenda();
 		
+		System.out.println("HOLA");
 		
 		//SINCRONIZACION FICHEROS / ARRAYLISTS
 		
@@ -21,33 +22,33 @@ public class MainTest {
 		
 		//CREACION USUARIOS 
 		
-//		System.out.println("Quieres crear algun usuario?");
-//		String decision1=sc.nextLine();
-//		
-//		if (decision1.equalsIgnoreCase("Si")) {
-//
-//			System.out.println("Benvenute! ");
-//			String nombre;
-//			int numTelf;
-//			int contNewUsers = 0;
-//			System.out.println("Introduce el tipo de persona a crear (Administrador|Usuario)");
-//
-//			String tipo = sc.nextLine();
-//
-//			while (tipo.equalsIgnoreCase("Admin") || tipo.equalsIgnoreCase("Administrador")
-//					|| tipo.equalsIgnoreCase("Usuario")) {
-//				System.out.println("Introduce un nombre:");
-//				nombre = sc.next();
-//				System.out.println("Introduce un telefono:");
-//				numTelf = sc.nextInt();
-//				agenda1.crearPersona(tipo, nombre, numTelf);
-//				System.out.println("Introduce el tipo de persona a crear (Administrador|Usuario|S para salir) ");
-//				tipo = sc.next();
-//				contNewUsers++;
-//			}
-//			
-//			System.out.println("Saliste, has creado " + contNewUsers + " usuarios/admins nuevos !");
-//		}
+		System.out.println("Quieres crear algun usuario?");
+		String decision1=sc.nextLine();
+		
+		if (decision1.equalsIgnoreCase("Si")) {
+
+			System.out.println("Benvenute! ");
+			String nombre;
+			int numTelf;
+			int contNewUsers = 0;
+			System.out.println("Introduce el tipo de persona a crear (Administrador|Usuario)");
+
+			String tipo = sc.nextLine();
+
+			while (tipo.equalsIgnoreCase("Admin") || tipo.equalsIgnoreCase("Administrador")
+					|| tipo.equalsIgnoreCase("Usuario")) {
+				System.out.println("Introduce un nombre:");
+				nombre = sc.next();
+				System.out.println("Introduce un telefono:");
+				numTelf = sc.nextInt();
+				agenda1.crearPersona(tipo, nombre, numTelf);
+				System.out.println("Introduce el tipo de persona a crear (Administrador|Usuario|S para salir) ");
+				tipo = sc.next();
+				contNewUsers++;
+			}
+			
+			System.out.println("Saliste, has creado " + contNewUsers + " usuarios/admins nuevos !");
+		}
 		
 		//PRUEBAS FICHEROS
 		
@@ -62,16 +63,16 @@ public class MainTest {
 		
 		//LOG IN USERS/ADMINS
 		
-//		System.out.println("Hola! Esta es la agenda de Mario e Ilya, por favor haz Log In.");
-//		System.out.println("Introduce tu telefono para hacer Log In en la aplicación");
-//		
-//		int numLogIn=sc.nextInt(); 
-//		int adminOusu=0;
-//		try {
-//			adminOusu=agenda1.logIn(numLogIn);
-//		} catch (ErrorLogIn exc) {
-//			System.err.println("ERROR AL LOGEAR");
-//		}
+		System.out.println("Hola! Esta es la agenda de Mario e Ilya, por favor haz Log In.");
+		System.out.println("Introduce tu telefono para hacer Log In en la aplicación");
+		
+		int numLogIn=sc.nextInt(); 
+		int adminOusu=0;
+		try {
+			adminOusu=agenda1.logIn(numLogIn);
+		} catch (ErrorLogIn exc) {
+			System.err.println("ERROR AL LOGEAR");
+		}
 		
 		
 		//MENU DE FUNCIONES PARA USUARIOS Y ADMINISTRADORES

@@ -1,5 +1,6 @@
 package pruebasCajaNegra;
-
+import clasesAgenda.*;
+import baulErrores.*;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -7,35 +8,48 @@ import org.junit.Test;
 public class LogInTest {
 
 	
-	public boolean logIn(String telf) {
+	
+
+	Agenda agenda =new Agenda();
+	
+	@Test(expected = ErrorLogIn.class)
+	public void logInException() throws ErrorLogIn {
 		
-		return telf.matches(".*[0-9].*")&&telf.length()<=9;	
+		int numTelf = 103;
+		agenda.logIn(numTelf);
 		
 	}
-
-	@Test
-    public void logInNumIncorrecto() {
-        String telf = "1234567891"; // teléfono incorrecto
+	
+	
+	@Test(expected = ErrorLogIn.class)
+    public void logInNumIncorrecto() throws ErrorLogIn {
+        int numtelf = 1234567891; // teléfono incorrecto
       
-        boolean result = logIn(telf);
+        int i= agenda.logIn(numtelf);
         
-        assertFalse(result); // el resultado debería ser falso
+        boolean result=false;
+        if(i==2) {
+        assertFalse(result);// el resultado debería ser falso
+        }else {
+        result=true;
+        assertFalse(result);
+        }
     }
+
     
-    @Test
-    public void logInNumOlvidado() {
-        String telf = null; // teléfono no proporcionado
+    @Test(expected = ErrorLogIn.class)
+    public void logInCorrecto() throws ErrorLogIn {
+        int numTelf2=101; // teléfono correcto
         
-        assertNull(telf); // el resultado debería ser falso
-    }
-    
-    @Test
-    public void logInCorrecto() {
-        String telf = "555555555"; // teléfono correcto
-        
-        boolean result = logIn(telf);
-        
+        int i= agenda.logIn(numTelf2);
+        boolean result=true;
+        if(i==2) {
         assertTrue(result); // el resultado debería ser verdadero
+        }else {
+        result=false;
+        assertTrue(result);
+        }
+       
     }
    
 }

@@ -24,7 +24,10 @@ public class AccesoFicheros {
 //	}
 	
 	//SINCRONIZACION FICHERO CON ARRAYLISTS
-	
+	/**
+	 * Metodo que actualiza la coleccion de Personas con los datos de la base de datos existente.
+	 * @param agenda Coleccion de personas.
+	 */
 	public static void updateARLCnt(ArrayList<Persona> agenda) {
 		System.out.println("Sincronizando repositorios con ArrayList Contatos...");
 		try {
@@ -41,7 +44,10 @@ public class AccesoFicheros {
 			System.err.println("Problem encountered while updating ArrayLists.");
 		}
 	}
-	
+	/**
+	 * Metodo que actualiza la coleccion de Mensajes con los datos de la base de datos existente.
+	 * @param agenda Coleccion de Mensajes.
+	 */
 	public static void updateARLMsg(ArrayList<Mensaje> mensajes) {
 		System.out.println("Sincronizando repositorios con ArrayList Mensajes...");
 		try {
@@ -86,6 +92,9 @@ public class AccesoFicheros {
 	
 	//METODO LECTURA DE FICHEROS
 
+	/**
+	 * Metodo que devuelve todos los datos existentes en la base de datos de Personas.
+	 */
 	public static void leerFicheroContactos() {
 		System.out.println("Mostrando base de datos de contactos...");
 		try {
@@ -100,7 +109,9 @@ public class AccesoFicheros {
 			System.err.println("Error al leer el fichero de contactos");		
 		}
 	}
-	
+	/**
+	 * Metodo que devuelve todos los datos existentes en la base de datos de Mensajes.
+	 */
 	public static void leerFicheroMensajes() {
 		System.out.println("Mostrando base de datos de mensajes...");
 		try {
@@ -117,7 +128,10 @@ public class AccesoFicheros {
 	}
 	
 	//METODO ESCRITURA EN FICHEROS
-	
+	/**
+	 * Metodo que guarda en la base de datos un contacto nuevo
+	 * @param contactoNuevo contacto a guardar.
+	 */
 	public static void escribirFicheroContactos(String contactoNuevo) {
 		try {
 			writer=new BufferedWriter(new FileWriter(RUTACONTACTOS,true)); // Añadido Append
@@ -129,6 +143,10 @@ public class AccesoFicheros {
 		}
 	}
 	
+	/**
+	 * Metodo que guarda en la base de datos un mensaje nuevo
+	 * @param mensajeNuevo mensaje a guardar.
+	 */
 	public static void escribirFicheroMensajes(String mensajeNuevo) {
 		try {
 			writer=new BufferedWriter(new FileWriter(RUTACONTACTOS,true)); //Añadido Append

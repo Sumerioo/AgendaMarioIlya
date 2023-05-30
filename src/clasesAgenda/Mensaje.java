@@ -1,5 +1,10 @@
 package clasesAgenda;
-
+/**
+ * Clase padre de MMS y SMS, abstracta.
+ * @author Mario e Ilya
+ * @version 1.0
+ * @since 30-05-2023
+ */
 public abstract class Mensaje {
 	//Atributos
 	private int telfEmisor;
